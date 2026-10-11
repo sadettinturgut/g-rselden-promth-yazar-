@@ -23,7 +23,7 @@ export async function analyzeImage(base64Image: string, mimeType: string): Promi
             },
           },
           {
-            text: "Bu resmi analiz et ve başka bir yapay zeka görsel oluşturucu (Midjourney, Stable Diffusion vb.) için son derece detaylı bir prompt oluştur. Çıktıyı belirtilen kategorilere ayırarak Türkçe olarak ver. Fotoğrafçı kimliği (selfie mi yoksa başkası mı?), kameranın öznenin tam olarak neresinde durduğu, öznenin kadrajı ne kadar doldurduğu (komple vücut mu, sadece gözler mi?), kamera yüksekliği, çekim açısı, üç çeyrek açı durumu, kadraj tipi, perspektif, duruş tipi, gövde ve baş yönü, omuz üzerinden bakış, vücut yön farkları ve el pozisyonu gibi teknik fotoğraf ve poz terimlerini asla atlama. Kıyafet bölümünde yapay zeka görsel üreticilerinin sansürlediği/izin vermediği kelimeleri (külot, tanga, iç çamaşırı vb.) kesinlikle kullanma; bunların yerine güvenli ve moda odaklı alternatif terimler kullan. Eğer görselde türban veya başörtüsü varsa bağlama şeklini, kıvrımlarını ve duruşunu çok detaylı betimle.",
+            text: "Bu resmi analiz et ve başka bir yapay zeka görsel oluşturucu (Midjourney, Stable Diffusion vb.) için son derece detaylı bir prompt oluştur. Çıktıyı belirtilen kategorilere ayırarak Türkçe olarak ver. Özellikle 'Kamera, Kadraj & Pozisyon' bölümünde kadrajın sınırlarını (vücudun tam olarak hangi noktasından kesildiği, baş üstü ve yan boşluklar) ve öznenin kadraj içindeki vücut pozunu hiçbir yoruma yer bırakmayacak kadar KESİN, NET ve ÖLÇÜLÜ bir şekilde tarif et. Fotoğrafçı kimliği (selfie mi yoksa başkası mı?), kameranın öznenin tam olarak neresinde durduğu, öznenin kadrajı ne kadar doldurduğu, kamera yüksekliği, çekim açısı, üç çeyrek açı durumu, kadraj tipi, perspektif, duruş tipi, gövde ve baş yönü, omuz üzerinden bakış, vücut yön farkları ve el pozisyonu gibi teknik fotoğraf ve poz terimlerini asla atlama. Kıyafet bölümünde yapay zeka görsel üreticilerinin sansürlediği/izin vermediği kelimeleri (külot, tanga, iç çamaşırı vb.) kesinlikle kullanma; bunların yerine güvenli ve moda odaklı alternatif terimler kullan. Eğer görselde türban veya başörtüsü varsa bağlama şeklini, kıvrımlarını ve duruşunu çok detaylı betimle.",
           },
         ],
       },
@@ -34,25 +34,22 @@ export async function analyzeImage(base64Image: string, mimeType: string): Promi
       Yanıtını teknik fotoğrafçılık ve pozlama terimleri kullanarak şu başlıklar altında detaylandır:
       
       1. Kamera, Kadraj & Pozisyon (kameraVeKadraj):
-      - Fotoğrafçı Kimliği: (Özne kendi selfiesini mi çekiyor yoksa bir başkası mı?)
-      - Kameranın Özneye Göre Konumu: (Kamera öznenin tam karşısında mı, sağ/sol çaprazında mı, arkasında mı, yan tarafında mı, üstünde mi veya altında mı duruyor? Öznenin hangi noktasına hizalanmış?)
-      - Kadraj Doluluğu: (Özne kadrajı ne kadar dolduruyor? Komple vücut mu, üst gövde mi, sadece yüz mü yoksa sadece gözler gibi makro bir detay mı? Öznenin kadrajdaki baskınlığı.)
-      - En-boy oranı (örneğin 9:16, 16:9, 1:1 kare vb. --ar parametresi olarak da eklenebilir).
-      - Tahmini Ölçüler: (Genişlik x Yükseklik, örneğin 1080x1920px).
-      - Kadraj Durumu: Dikey/yatay/kare durumu, kompozisyon kuralları (üçte bir kuralı vb.) ve çerçeveleme detayları.
-      - Kamera Yüksekliği: (Göz hizası, diz hizası, yer seviyesi, baş üstü vb.)
-      - Çekim Açısı: (High-angle, low-angle, Dutch angle, bird's eye vb.)
-      - Üç Çeyrek Açı (Three-Quarter View): Öznenin kameraya göre dönüş açısı.
-      - Perspektif: (Tek noktalı perspektif, geniş açı distorsiyonu, telefoto sıkıştırması vb.)
-      - Kadraj Tipi / Shot Type: (Extreme close-up, close-up, medium shot, American shot, full shot, wide shot vb.)
-      - Öznenin kameraya olan uzaklığı.
+      - KESİN KADRAJ SINIRLARI: Kadrajın alt, üst, sağ ve sol sınırlarının özneyi tam olarak nereden kestiğini net olarak belirt (Örn: "Kadrajın alt sınırı tam olarak uyluk ortasından / diz kapağının 5 cm üstünden / bel oyuğundan / göğüs altından kesiliyor; başın üstünde kadrajın %10'u kadar boşluk (headroom) var; özne kadrajın tam merkezinde / hafif sağ üçte birlik çizgisinde yer alıyor").
+      - KADRAJ İÇİNDEKİ KESİN VÜCUT POZU: Öznenin kameraya ve kadraja göre vücut pozisyonunu milimetrik bir netlikle tarif et (Örn: "Vücut kameraya 45 derece sola dönükken baş doğrudan objektife çevrilmiş, ağırlık sağ bacakta, sol kalça hafif dışarı çıkarılmış (S-eğrisi), sağ omuz sol omuzdan daha aşağıda, sırt hafif geriye yaslanmış, kolların ve bacakların kadraj içindeki tam açıları ve doğrultusu").
+      - Fotoğrafçı Kimliği: (Özne kendi selfiesini mi çekiyor yoksa bir başkası mı? Selfie ise hangi eliyle telefonu tuttuğu veya ayna karşısında olup olmadığı.)
+      - Kameranın Özneye Göre Konumu: (Kamera öznenin tam karşısında mı, sağ/sol çaprazında mı, arkasında mı, yan tarafında mı, üstünde mi veya altında mı duruyor? Öznenin tam olarak hangi vücut noktasına hizalanmış?)
+      - Kadraj Doluluğu ve Çekim Planı (Shot Type): (Özne kadrajın yüzde kaçını dolduruyor? Extreme close-up, close-up, medium close-up, medium shot, cowboy/American shot, full body shot veya wide shot olduğunu kesin olarak yaz.)
+      - En-boy Oranı ve Tahmini Ölçüler: (Örn: 9:16 dikey format, 1080x1920px veya 4:5 portre vb.)
+      - Kamera Yüksekliği, Çekim Açısı ve Perspektif: (Göz hizası, göğüs hizası, bel/kalça hizası, yer seviyesi; High-angle, low-angle, eye-level; lens odak uzaklığı hissi ve perspektif derinliği.)
+      - Öznenin Kameraya Olan Mesafesi: (Örn: yaklaşık 1 metre yakın mesafe, 2-3 metre orta mesafe vb.)
       
       2. Vücut (vucutDurusu):
-      - Duruş Tipi: (Ayakta, oturma, yaslanma, kontrapost/contrapposto, dinamik hareket vb.)
-      - Gövde Yönü: (Kameraya tam dönük, profilden, 45 derece açılı vb.)
-      - Baş Yönü: (Tilt, turn, chin up/down detayları).
-      - Yüz İfadesi: Bakış yönü, duygusal durum, dudak ve göz çevresi detayları.
-      - El Pozisyonu: (Ellerin etkileşimi, yüze yakınlık, ceplerde, serbest döküm vb.)
+      - Duruş Tipi ve Anatomik Poz: (Ayakta, oturma, yaslanma, uzanma, kontrapost/contrapposto, dinamik hareket vb. Vücut ağırlığının dağılımı ve omurga hattı.)
+      - Gövde, Omuz ve Kalça Yönü: (Gövdenin kameraya açısı, omuzların eğimi ve kalça duruşu arasındaki açı farkları.)
+      - Baş Yönü ve Boyun Açısı: (Başın sağa/sola dönüşü, yana eğimi/tilt, çenenin yukarı/aşağı duruşu.)
+      - Yüz İfadesi ve Bakış: (Bakışların tam hedefi - doğrudan lense mi, kamera dışına mı -, göz kapaklarının açıklığı, kaş ve dudak duruşu, duygu durumu.)
+      - Kol ve El Pozisyonu: (Her iki kolun dirsekten kırılma açısı, ellerin tam olarak nerede olduğu ve neye temas ettiği - saçta, belde, yüzde, cepte, zemine dayalı vb. - parmakların duruşu.)
+      - Bacak ve Ayak Pozisyonu (Görünüyorsa): (Bacakların birbirine göre konumu, çapraz duruş, diz kırıklığı, adım atma hissi.)
       
       3. Kıyafet (kiyafetVeAksesuarlar):
       - ÖNEMLİ FİLTRE KURALI: Yapay zeka görsel oluşturucuların güvenlik filtrelerine takılan, izin verilmeyen kelimeleri (örneğin: külot, tanga, iç çamaşırı, sütyen, bikini altı vb.) KESİNLİKLE YAZMA. Bunların yerine yapay zekanın sorunsuz kabul edeceği "spor alt giyim", "yüksek bel şort kesim alt", "büstiyer", "plaj giyimi", "vücuda oturan alt parça" gibi güvenli ve estetik moda terimleri kullan.
